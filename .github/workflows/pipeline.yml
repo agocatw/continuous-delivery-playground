@@ -7,5 +7,17 @@ jobs:
     steps:
       - name: Hello World step
         run: echo "Hello World!"
-      - name: Goodbye World step
+      - name: create file
+        run: |
+          touch file1
+          date +%s > file2
+      - uses: actions/upload-artifact@v3  # Upload build artifacts
+        with:
+          name: file2
+          path: file2  # Re  goodbye-lenin:
+  goodbye-lenin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Goodbye lenin step
         run: echo "Goobye world!"
+        
